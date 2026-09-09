@@ -3,7 +3,7 @@ use std::{
     fmt::{Display, Formatter, Result},
 };
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum ConfigError {
     InvalidPortRange { start: u16, end: u16 },
     PortZeroNotSupported,
