@@ -6,6 +6,7 @@ pub const MAX_CONCURRENCY_LIMIT: usize = 10_000;
 pub const MIN_TIMEOUT_MS: u64 = 10;
 pub const MAX_TIMEOUT_MS: u64 = 60_000;
 
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Config {
     pub address: IpAddr,
     pub start_port: u16,
@@ -33,7 +34,8 @@ impl Config {
         }
         let timeout_ms = self.timeout.as_millis() as u64;
         // if timeout_ms < MIN_TIMEOUT_MS || timeout_ms > MAX_TIMEOUT_MS {
-        if (MIN_TIMEOUT_MS..MAX_TIMEOUT_MS).contains(&timeout_ms) {
+        if !(MIN_TIMEOUT_MS..MAX_TIMEOUT_MS).contains(&timeout_ms) {
+            // if matches!(timeout_ms, MIN_TIMEOUT_MS..=MAX_TIMEOUT_MS) {
             return Err(ConfigError::TimeoutOutOfBounds {
                 requested_ms: timeout_ms,
                 min_ms: MIN_TIMEOUT_MS,
