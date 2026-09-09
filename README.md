@@ -57,12 +57,7 @@ cargo run
 Run a scan against a specific address and port range:
 
 ```bash
-cargo run -- \
-  --address 127.0.0.1 \
-  --start 1 \
-  --end 1024 \
-  --concurrency 250 \
-  --timeout 500
+cargo run -- --address 127.0.0.1 --start 1 --end 1024 --concurrency 250 --timeout 500
 ```
 
 The options are:
