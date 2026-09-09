@@ -36,7 +36,7 @@ cargo --version
 Clone the project and enter its directory:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/joebertcerezo/port_scanner.git
 cd port_scanner
 ```
 
