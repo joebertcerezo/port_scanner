@@ -10,7 +10,7 @@ pub struct ScanResult {
 }
 
 impl ScanResult {
-    fn new(address: IpAddr, port: u16, state: PortState, service: Service) -> Self {
+    pub fn new(address: IpAddr, port: u16, state: PortState, service: Service) -> Self {
         Self { address, port, state, service }
     }
 }
